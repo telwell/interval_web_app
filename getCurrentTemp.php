@@ -24,7 +24,7 @@
 
 	try {
 		$dbh = new PDO($dsn, $username, $password);
-		$stmt = $dbh->prepare('INSERT INTO temp(temp, created_at)
+		$stmt = $dbh->prepare('INSERT INTO interval(temp, created_at)
 	    VALUES(:temp, :created_at)');
 		
 		$stmt->execute(array(

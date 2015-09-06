@@ -19,7 +19,7 @@
 
 			$dbh = new PDO($dsn, $username, $password);
 
-		  $stmt = $dbh->prepare('SELECT * FROM temp');
+		  $stmt = $dbh->prepare('SELECT * FROM interval');
 		  $stmt->execute();
 
 		  $temps = array();
