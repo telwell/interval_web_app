@@ -13,7 +13,7 @@
 		</div>
 		
 		<?php
-			$dsn = 'pgsql:host=ec2-54-197-245-93.compute-1.amazonaws.com;dbname=dctpk3quvtvuq';
+			$dsn = 'pgsql:host=ec2-54-197-245-93.compute-1.amazonaws.com;port=5432;dbname=dctpk3quvtvuq';
 			$username = 'ysnekieesqtdjz';
 			$password = 'kbV9BLsXhDr7Al-Otmu6dYN7OX';
 
