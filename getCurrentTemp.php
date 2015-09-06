@@ -18,9 +18,9 @@
 	// Set our current temp, this is what we'll be saving into the DB
 	$current_temp = $weather_info['main']['temp'];
 
-	$dsn = 'mysql:host=localhost;dbname=interval';
-	$username = 'root';
-	$password = 'TrEv-33or';
+	$dsn = 'psql:host=ec2-54-197-245-93.compute-1.amazonaws.com;dbname=dctpk3quvtvuq';
+	$username = 'ysnekieesqtdjz';
+	$password = 'kbV9BLsXhDr7Al-Otmu6dYN7OX';
 
 	try {
 		$dbh = new PDO($dsn, $username, $password);
