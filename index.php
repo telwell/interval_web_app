@@ -22,8 +22,6 @@
 		  // Collect our query rows and add them to an array.
 		  $temps = fetch_query_rows($query);
 
-		  print_r($temps);
-
 		  // Set these as empty arrays for the time being
 		  // so that they are available outside of the scope of 
 		  // the foreach loop below.
@@ -39,57 +37,31 @@
 		  close_pdo($pdo);
 		?>
 
-		<script>
-		var lineChartData = {
-			labels : [
-				<?php echo implode(',',$temp_dates); ?>
-			],
-			datasets : [
-				{
-					label: "Temperature in Zip Code 10030",
-					fillColor : "rgba(220,220,220,0.2)",
-					strokeColor : "rgba(220,220,220,1)",
-					pointColor : "rgba(220,220,220,1)",
-					pointStrokeColor : "#fff",
-					pointHighlightFill : "#fff",
-					pointHighlightStroke : "rgba(220,220,220,1)",
-					data : [<?php echo implode(',',$filtered_temps); ?>]
-				},
-			]
+		<script src="js/temp_chart.js"></script>
 
-		}
+		<!-- Per the spec, I'm going to add the table of of the temperatures
+					below the graph. -->
+		<section id="table">
+			
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Temp.(&deg;F)</th>
+						<th>Date/Time</th>
+					</tr>
 
-	window.onload = function(){
-		var ctx = document.getElementById("canvas").getContext("2d");
-		window.myLine = new Chart(ctx).Line(lineChartData, {
-			responsive: true
-		});
-	}
-	</script>
+					<tbody>
+						<?php foreach($temps as $temp): ?>
+							<tr>
+								<td><?php echo $temp['temp'] . "&deg;"; ?></td>
+								<td><?php echo date('F j, Y, g:i a', $temp['created_at']); ?></td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</thead>
+			</table>
 
-	<!-- Per the spec, I'm going to add the table of of the temperatures
-				below the graph. -->
-	<section id="table">
-		
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Temp.(&deg;F)</th>
-					<th>Date/Time</th>
-				</tr>
-
-				<tbody>
-					<?php foreach($temps as $temp): ?>
-						<tr>
-							<td><?php echo $temp['temp'] . "&deg;"; ?></td>
-							<td><?php echo date('F j, Y, g:i a', $temp['created_at']); ?></td>
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</thead>
-		</table>
-
-	</section>
+		</section>
 
 	</main>
 
