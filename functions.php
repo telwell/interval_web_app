@@ -14,9 +14,9 @@
 	}
 
 	function query_pdo($pdo, $query){
-		$pdo->prepare($query);
-	  $query->execute();
-	  return $query;
+		$exec = $pdo->prepare($query);
+	  $exec->execute();
+	  return $exec;
 	}
 
 	function close_pdo($pdo){
