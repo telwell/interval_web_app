@@ -18,10 +18,6 @@
 	    $pdo_username = $dbopts["user"];
 	    $pdo_password = $dbopts["pass"];
 
-	    echo $pdo_dsn;
-	    echo $pdo_username;
-	    echo $pdo_password;
-
 			$dbh = new PDO($pdo_dsn, $pdo_username, $pdo_password);
 
 		  $stmt = $dbh->prepare('SELECT * FROM interval');
