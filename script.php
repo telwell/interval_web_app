@@ -19,9 +19,9 @@
 	$current_temp = $weather_info['main']['temp'];
 
 	$dbopts = parse_url(getenv('DATABASE_URL'));
-  $pdo_dsn => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';port='.$dbopts["port"].'host='.$dbopts["host"];
-  $pdo_username => $dbopts["user"];
-  $pdo_password => $dbopts["pass"];
+  $pdo_dsn = 'pgsql:dbname='.ltrim($dbopts["path"],'/').';port='.$dbopts["port"].'host='.$dbopts["host"];
+  $pdo_username = $dbopts["user"];
+  $pdo_password = $dbopts["pass"];
 
 	try {
 		$dbh = new PDO($pdo_dsn, $pdo_username, $pdo_password);
