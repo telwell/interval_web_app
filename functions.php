@@ -28,7 +28,7 @@
 	  while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 	    $results[] = $row;
 	  }
-	  return results;
+	  return $results;
 	}
 
 
