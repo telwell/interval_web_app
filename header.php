@@ -1,7 +1,10 @@
 <?php 
+	// Otherwise php throws us a nasty error.
 	date_default_timezone_set('America/New_York');
-	require 'vendor/autoload.php';
 
+	// Requiring our composer includes and our functions file.
+	require 'vendor/autoload.php';
+	require 'functions.php'; 
 ?>
 
 <html>

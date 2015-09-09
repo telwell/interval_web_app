@@ -13,21 +13,18 @@
 		</div>
 		
 		<?php
-			$dbopts = parse_url(getenv('DATABASE_URL'));
-	    $pdo_dsn = 'pgsql:dbname='.ltrim($dbopts["path"],'/').';port='.$dbopts["port"].';host='.$dbopts["host"];
-	    $pdo_username = $dbopts["user"];
-	    $pdo_password = $dbopts["pass"];
+			// Initiate and generate our PDO from our helper methods.
+			$pdo = generate_pdo();
 
-			$dbh = new PDO($pdo_dsn, $pdo_username, $pdo_password);
+			// Prepares and executes the passed query on the PDO.
+		  $query = query_pdo($pdo, 'SELECT * FROM interval');
 
-		  $stmt = $dbh->prepare('SELECT * FROM interval');
-		  $stmt->execute();
+		  // Collect our query rows and add them to an array.
+		  $temps = fetch_query_rows($query);
 
-		  $temps = array();
-		  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-		    $temps[] = $row;
-		  }
-
+		  // Set these as empty arrays for the time being
+		  // so that they are available outside of the scope of 
+		  // the foreach loop below.
 		  $temp_dates = array();
 		  $filtered_temps = array();
 
@@ -35,6 +32,9 @@
 		  	$temp_dates[] = '"' . date('F j, Y, g:i a', $temp['created_at']) . '"';
 		  	$filtered_temps[] = $temp['temp'];
 		  }
+
+		  // Close our PDO connection now that we're done using our DB.	
+		  close_pdo();
 		?>
 
 		<script>
