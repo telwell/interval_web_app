@@ -37,7 +37,7 @@
 		  close_pdo($pdo);
 		?>
 
-		<script src="js/temp_chart.js"></script>
+		<?php echo file_get_contents("js/temp_chart.js"); ?>
 
 		<!-- Per the spec, I'm going to add the table of of the temperatures
 					below the graph. -->
