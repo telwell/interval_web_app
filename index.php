@@ -22,6 +22,8 @@
 		  // Collect our query rows and add them to an array.
 		  $temps = fetch_query_rows($query);
 
+		  print_r($temps);
+
 		  // Set these as empty arrays for the time being
 		  // so that they are available outside of the scope of 
 		  // the foreach loop below.
@@ -34,7 +36,7 @@
 		  }
 
 		  // Close our PDO connection now that we're done using our DB.	
-		  close_pdo();
+		  close_pdo($pdo);
 		?>
 
 		<script>
