@@ -1,5 +1,5 @@
 <?php 
-	date_default_timezone_set('EST');
+	date_default_timezone_set('EDT');
 	require 'vendor/autoload.php';
 
 ?>
