@@ -15,3 +15,5 @@ These helped immensely but the heavy lifting was done via the code. I've tried t
 # Todos: 
 
 Presently, the most prominent todo for this project would be to add pagination to the table below the chart (because eventually it will become unwieldy). 
+
+View [on heroku](https://floating-citadel-9399.herokuapp.com/)
