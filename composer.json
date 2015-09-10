@@ -1,6 +1,5 @@
  {
    "require": {
-      "guzzlehttp/guzzle": "~6.0",
-      "herrera-io/silex-pdo": "1.*"
+      "guzzlehttp/guzzle": "~6.0"
    }
 }

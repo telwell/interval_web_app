@@ -5,7 +5,7 @@
 	use GuzzleHttp\Client;
 
 	$client = new Client([
-			// make sure we don't hit the API too many times.
+			// Don't want to get hung up waiting for API responses.
 	    'timeout'  => 2.0
 	]);
 
