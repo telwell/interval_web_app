@@ -29,7 +29,6 @@
 
 	function query_pdo($pdo, $query){
 		$exec = $pdo->prepare($query);
-	  $exec->execute();
 	  return $exec;
 	}
 
@@ -44,6 +43,5 @@
 	  }
 	  return $results;
 	}
-
 
 ?>

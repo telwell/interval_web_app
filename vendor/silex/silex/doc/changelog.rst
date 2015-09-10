@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.3.3 (2015-09-08)
+------------------
+
+* added support for Symfony 3.0 and Twig 2.0
+* fixed some Form deprecations
+* removed deprecated method call in the exception handler
+* fixed Swiftmailer spool flushing when spool is not enabled
+
 1.3.2 (2015-08-24)
 ------------------
 

@@ -18,24 +18,6 @@
 	// Set our current temp, this is what we'll be saving into the DB
 	$current_temp = $weather_info['main']['temp'];
 
-	$dbopts = parse_url(getenv('DATABASE_URL'));
-  $pdo_dsn = 'pgsql:dbname='.ltrim($dbopts["path"],'/').';port='.$dbopts["port"].';host='.$dbopts["host"];
-  $pdo_username = $dbopts["user"];
-  $pdo_password = $dbopts["pass"];
+	require('inc/insert_temp_db.php');
 
-	try {
-		$dbh = new PDO($pdo_dsn, $pdo_username, $pdo_password);
-		$stmt = $dbh->prepare('INSERT INTO interval(temp, created_at)
-	    VALUES(:temp, :created_at)');
-		
-		$stmt->execute(array(
-		    "temp" => $current_temp,
-		    "created_at" => time()
-		));
-
-		$dbh = null;
-	} catch (PDOException $e) {
-	  print "Error!: " . $e->getMessage() . "<br/>";
-	  die();
-	}
 ?>
