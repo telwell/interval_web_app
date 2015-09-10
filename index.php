@@ -28,6 +28,10 @@
 		  $temp_dates = array();
 		  $filtered_temps = array();
 
+		  // Now we need to actually fill our temp_dates and filtered_temps
+		  // arrays with data! temp_dates fills with the dates and times of the
+		  // API calls and filtered_temps fills with the actual temperatures.
+		  // TODO: Should look into changing these variable names.
 		  foreach($temps as $temp){
 		  	$temp_dates[] = '"' . date('F j, Y, g:i a', $temp['created_at']) . '"';
 		  	$filtered_temps[] = $temp['temp'];
