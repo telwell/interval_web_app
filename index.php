@@ -11,16 +11,23 @@
 				<canvas id="canvas"></canvas>
 			</div>
 		</div>
-		
+
 		<?php
 			// Initiate and generate our PDO from our helper methods.
-			$pdo = generate_pdo();
+			
+			try {
+			    $pdo = generate_pdo();
+			    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			} catch (PDOException $e) {
+			    echo 'Connection failed: ' . $e->getMessage();
+			}
 
 			// Prepares and executes the passed query on the PDO.
-		  $query = query_pdo($pdo, 'SELECT * FROM interval');
+		  $query = query_pdo($pdo, 'SELECT * FROM temps');
 
 		  // Collect our query rows and add them to an array.
 		  $temps = fetch_query_rows($query);
+
 
 		  // Set these as empty arrays for the time being
 		  // so that they are available outside of the scope of 
